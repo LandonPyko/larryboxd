@@ -1,0 +1,11 @@
+{
+  "name": "database-project",
+  "version": "1.0.0",
+  "description": "Stuff for database projec",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Landon Pyko, Andrew Mcferrin, Kai Achen",
+  "license": "ISC"
+}
