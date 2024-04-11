@@ -7,46 +7,32 @@
 <body>
 <h1><a href="frontpage.html">Larryboxd</a></h1>
  <!-- Login Button -->
- <button class="open-button" onclick="openForm()">Login</button>
+ <button class="open-button" onclick="openForm()">Open Form</button>
 
- <!-- Login Form -->
- <div class="form-popup" id="myForm">
-   <form action="/loginpage.php" class="form-container">
-     <h1>Login</h1>
- 
-     <label for="email"><b>Email</b></label>
-     <input type="text" placeholder="Enter Email" name="email" required>
- 
-     <label for="psw"><b>Password</b></label>
-     <input type="password" placeholder="Enter Password" name="psw" required>
- 
-     <button type="submit" class="btn">Login</button>
-     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-   </form>
- </div> 
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
 
-<!-- Create Review Form -->
-<h2>Create a Review:</h2>
-<form>
-    <label for="mtitle">Movie Title:</label><br>
-    <input type="text" id="fname" name="mtitle"><br>
-    <label for="score">Score:</label><br>
-    <input type="text" id="lname" name="score">
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
   </form>
+</div>
+<!-- Open/Close Popup Scripts -->
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
-<!-- Search Movies Form -->
-<h2>Search Movies:</h2>
-<form action="mypage.php?searching=true" method="POST">
-  <label for="mtitle">Movie:</label><br> 
-  <input type="text" name="searchcategory" value=""/>
-    <input type="submit" value="Search"/>    
-  <!--<input type="text" id="mname" name="mtitle"><br>
-  <label for="mdirector">Director:</label><br>
-  <input type="text" id="mdirector" name="mdirector"><br>
-  <label for="mdirector">Year:</label><br>
-  <input type="text" id="myear" name="myear"><br>-->
-</form>
-
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
 
 </body>
 </html>

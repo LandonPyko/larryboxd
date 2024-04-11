@@ -21,13 +21,6 @@ con.connect(function(err) {
   });
 });
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-} 
 
 //http.createServer(function (req, res) {
     //res.writeHead(200, {'Content-Type': 'text/plain'});
