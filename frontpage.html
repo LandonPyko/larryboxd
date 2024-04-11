@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
 <Title>Movie Review Website</Title>
-
+<h1>Larryboxd</h1>
+<h2>Create a Review:</h2>
 <form>
     <label for="mtitle">Movie Title:</label><br>
     <input type="text" id="fname" name="mtitle"><br>
     <label for="score">Score:</label><br>
     <input type="text" id="lname" name="score">
   </form>
+
+<h2>Search Movies:</h2>
+<form action="mypage.php?searching=true" method="POST">
+  <label for="mtitle">Movie:</label><br> 
+  <input type="text" name="searchcategory" value=""/>
+    <input type="submit" value="Search"/>    
+  <!--<input type="text" id="mname" name="mtitle"><br>
+  <label for="mdirector">Director:</label><br>
+  <input type="text" id="mdirector" name="mdirector"><br>
+  <label for="mdirector">Year:</label><br>
+  <input type="text" id="myear" name="myear"><br>-->
+</form>
+
+
 
 </html>
