@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html>
+<head>
 <Title>Movie Review Website</Title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 <h1><a href="frontpage.html">Larryboxd</a></h1>
+ <!-- Login Button -->
+ <button class="open-button" onclick="openForm()">Login</button>
 
+ <!-- Login Form -->
+ <div class="form-popup" id="myForm">
+   <form action="/loginpage.php" class="form-container">
+     <h1>Login</h1>
+ 
+     <label for="email"><b>Email</b></label>
+     <input type="text" placeholder="Enter Email" name="email" required>
+ 
+     <label for="psw"><b>Password</b></label>
+     <input type="password" placeholder="Enter Password" name="psw" required>
+ 
+     <button type="submit" class="btn">Login</button>
+     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+   </form>
+ </div> 
+
+<!-- Create Review Form -->
 <h2>Create a Review:</h2>
 <form>
     <label for="mtitle">Movie Title:</label><br>
@@ -11,6 +34,7 @@
     <input type="text" id="lname" name="score">
   </form>
 
+<!-- Search Movies Form -->
 <h2>Search Movies:</h2>
 <form action="mypage.php?searching=true" method="POST">
   <label for="mtitle">Movie:</label><br> 
@@ -24,5 +48,5 @@
 </form>
 
 
-
+</body>
 </html>
