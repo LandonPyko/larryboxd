@@ -1,28 +1,28 @@
 {box-sizing: border-box;}
 
-/* Button used to open the contact form - fixed at the bottom of the page */
+/* Button used to open the contact form - fixed at the top right of the page */
 .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 140px;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    top: 23px; /* Changed from bottom to top */
+    right: 28px;
+    width: 140px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    top: 0; /* Changed from bottom to top */
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
 
 /* Add styles to the form container */
 .form-container {
