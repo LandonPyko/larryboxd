@@ -22,12 +22,10 @@ Andrew McFerrin, Landon Pyko, Kai Achen
 - Review comments are comprised of a maximum of 250 characters
 - Movie Rating must be a decimal between  0 and 10 
 ### Operations (Bold use join):
-- **Find all reviews of movies that turned a profit (box office earnings - budget)**
 - **Find the amount of money contributed to a movie’s box office by a theater**
 - **Find director of a user’s favorite movie**
 - Find all movies reviewed by a user(s)
 - Find all movies that played in a theater
-- Find all users whose favorite movie is blank
 - Find all movies made by given director
 - Find average rating of a movie
 
