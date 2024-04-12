@@ -7,32 +7,24 @@
 <body>
 <h1><a href="frontpage.html">Larryboxd</a></h1>
  <!-- Login Button -->
- <button class="open-button" onclick="openForm()">Open Form</button>
+ <a class="login-button" href="login.php">Login</a>
+ 
+<!-- Register Button -->
+<a class="register-button" href="register.php">Register</a>
 
-<div class="form-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <h1>Login</h1>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit" class="btn">Login</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
+<!-- Andy's Search Bar -->
+<div class="search-bar">
+  <input type="text" class="search-field" placeholder="Movie Title">
+  <input type="text" class="search-field" placeholder="Director">
+  <input type="text" class="search-field" placeholder="Year Released">
+  <button class="search-button">Search</button>
 </div>
-<!-- Open/Close Popup Scripts -->
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
-<p>HELLO STINKY</p>
+<!-- Alternative Search Bar -->
+<form action="search.php" method="post">
+  Search Movie <input type="text" name="movie_search"><br>
+  <input type="submit">
+</form>
+
 </body>
 </html>
