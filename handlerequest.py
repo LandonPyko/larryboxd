@@ -103,7 +103,7 @@ def movie_title_search():
         year = "%" + year + "%"
         results = []
         cursor = mysql.connection.cursor()
-        query = "SELECT * FROM movies WHERE title LIKE %s OR director LIKE %s OR year_released LIKE %s"
+        query = "SELECT * FROM movies WHERE title LIKE %s AND director LIKE %s AND year_released LIKE %s"
         cursor.execute(query, (title,director,year,))
         results = cursor.fetchall()
         return render_template("search_results.html", results=results)
