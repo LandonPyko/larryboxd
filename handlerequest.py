@@ -90,6 +90,27 @@ def logout():
 
 # Login/Register Account End: ============================
 
+# Create Account:
+@app.route("/review")
+def review():
+    return render_template("create_review.html")
+
+@app.route("/create_review")
+def create_review():
+    username = session["username"]
+    title = request.form.get("title")
+    director = request.form.get("director")
+    year = request.form.get("year_released")
+    score = request.form.get("score")
+    notes = request.form.get("notes")
+    cursor = mysql.connection.cursor()
+
+    query= "INSERT INTO reviews (username, title, director, year, score, notes) VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor.execute(query,(username,title,director,year,score,notes,))
+    mysql.connection.commit()
+    
+    cursor.close()
+
 # Display movie search reults
 @app.route("/movie_title_search", methods = ["POST"])
 def movie_title_search():
@@ -101,7 +122,6 @@ def movie_title_search():
         director = "%" + director + "%"
         year = request.form["year_released"]
         year = "%" + year + "%"
-        results = []
         cursor = mysql.connection.cursor()
         query = "SELECT * FROM movies WHERE title LIKE %s AND director LIKE %s AND year_released LIKE %s"
         cursor.execute(query, (title,director,year,))
