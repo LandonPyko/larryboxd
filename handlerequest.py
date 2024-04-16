@@ -95,11 +95,16 @@ def logout():
 def movie_title_search():
     if request.method == "POST":
         username = session["username"]
-        title = "%" + request.form["title"] +"%"
+        title = request.form["title"]
+        title = "%" + title + "%"
+        director = request.form["director"]
+        director = "%" + director + "%"
+        year = request.form["year_released"]
+        year = "%" + year + "%"
         results = []
         cursor = mysql.connection.cursor()
-        query = "SELECT * FROM movies WHERE title LIKE %s"
-        cursor.execute(query, (title,))
+        query = "SELECT * FROM movies WHERE title LIKE %s OR director LIKE %s OR year_released LIKE %s"
+        cursor.execute(query, (title,director,year,))
         results = cursor.fetchall()
         return render_template("search_results.html", results=results)
 

@@ -6,10 +6,11 @@
 <body>
 <h1><a href="index.html">Larryboxd</a></h1>
 <h2>Search Results Page</h2>
-    <select>
+    <ul>
     {% for movie in results %}
-        <option value="{{ movie.title }}">{{ movie.title }}</option>
+        <li><p id="text">{{ movie.title }}</p> </li>
     {% endfor %}
-    </select>
+    </ul>
+<!--  {{ movie.director }} {{  movie.year_released }} {{  movie.box_office_earnings }} {{  movie.budget }} -->
 </body>
 </html>

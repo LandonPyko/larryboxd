@@ -2,7 +2,7 @@
 <html>
 <head>
 <Title>Movie Review Website</Title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="static/style.css">
 </head>
 <body>
 <h1><a href="index.html">Larryboxd</a></h1>
@@ -13,6 +13,15 @@
     Login
   </span>
 </a> </button>
-<p>HELLO STINKY</p>
+<span><p></p></span>
+<form action="/movie_title_search" method="post">
+<div class="search-bar">
+  <input type="text" class="search-field" name="title" placeholder="Movie Title">
+  <input type="text" class="search-field" name="director" placeholder="Director">
+  <input type="text" class="search-field" name="year_released" placeholder="Year Released">
+  <button type="submit" value="Submit">Search</button>
+</div>
+</form>
+<div class='today'> <form action="/process_form" method="post"><button type="submit" name="date" value="${fullDate}">${i}</button></form></div>
 </body>
 </html>
