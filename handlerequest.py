@@ -97,7 +97,7 @@ def movie_title_search():
         query = "SELECT * FROM movies WHERE title LIKE %s"
         cursor.execute(query, (title,))
         results = cursor.fetchall()
-        return render_template("searchresults.html", results=results)
+        return render_template("search_results.html", results=results)
 
 if __name__ == "__main__":
     app.run()

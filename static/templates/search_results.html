@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<Title>Movie Review Website</Title>
+</head>
+<body>
+<h1><a href="frontpage.html">Larryboxd</a></h1>
+<h2>Search Results Page</h2>
+    <select>
+    {% for movie in results %}
+        <option value="{{ movie.title }}">{{ movie.title }}</option>
+    {% endfor %}
+    </select>
+</body>
+</html>
