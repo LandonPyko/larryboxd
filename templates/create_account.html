@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<Title>Movie Review Website</Title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1><a href="index.html">Larryboxd</a></h1>
+ <!-- Login Button -->
+ <button>
+ <a href="{{ url_for('login') }}">
+  <span>
+    Login
+  </span>
+</a> </button>
+<div class="detail-box">
+    <div class="heading_container">
+      <h2>
+        Create Account
+      </h2>
+    </div>
+        <form action="/account_success" method = "post">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="password"><br>
+
+            <label for="favorite_movie">Favorite Movie:</label><br>
+            <input type="text" id="favorite_movie" name="favorite_movie"><br>
+
+            <label for="age">Age:</label><br>
+            <input type="text" id="age" name="age"><br> <br>
+            
+            <input type="submit" value="Create Account">
+          </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -10,16 +10,20 @@ app.config['SESSION_COOKIE_HTTPONLY'] = True  # Limit cookie access to HTTP requ
 app.config['SESSION_COOKIE_SECURE'] = True  # Only send cookie over HTTPS
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # SameSite policy for cookies
 
-app.config['MYSQL_HOST'] = 'mysql.eecs.ku.edu'
+app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'TN9VVQ%YPHu45YLftak$'
-app.config['MYSQL_DB'] = 'mental_health'
+app.config['MYSQL_PASSWORD'] = 'Terabyter47m!'
+app.config['MYSQL_DB'] = 'larryboxd'
 
 mysql = MySQL(app)
 
 # Home Page
 @app.route("/")
 def front_page():
+    return render_template("index.html")
+
+@app.route("/index")
+def index():
     return render_template("index.html")
 
 # Login/Register Account: ============================
@@ -41,13 +45,13 @@ def account_success():
 
     cursor = mysql.connection.cursor()
 
-    query= "INSERT INTO user (username, password, favorite_movie, age) VALUES (%s, %s, %s, %s)"
+    query= "INSERT INTO users (username, password, favorite_movie, age) VALUES (%s, %s, %s, %s)"
     cursor.execute(query,(username,password,favorite_movie,age,))
     mysql.connection.commit()
     
     cursor.close()
 
-    return render_template("account_success.html")
+    return render_template("index.html")
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
@@ -55,7 +59,7 @@ def login():
         return render_template("login.html")
         
     else:
-        return render_template("login_success.html")
+        return render_template("index.html")
 
 @app.route("/login_info", methods = ["GET","POST"])
 def login_info():
@@ -73,7 +77,7 @@ def login_info():
         if result is not None:
             session["username"] = username
             session["password"] = password
-            return render_template("login_success.html")
+            return render_template("index.html")
         
         else:    
             return render_template("create_account.html")
@@ -87,7 +91,7 @@ def logout():
 # Login/Register Account End: ============================
 
 # Display movie search reults
-@app.route("movie_title_search", methods = ["POST"])
+@app.route("/movie_title_search", methods = ["POST"])
 def movie_title_search():
     if request.method == "POST":
         username = session["username"]
