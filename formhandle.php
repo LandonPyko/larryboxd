@@ -1,4 +1,8 @@
 <?php
+
+
+
+	echo $_POST["email"]
 // Connect to MySQL server, select database
 	$conn = mysql_connect('mysql.eecs.ku.edu', '447s24_k801a197', 'aex4Voer')
     		or die('Could not connect: ' . mysql_error());
