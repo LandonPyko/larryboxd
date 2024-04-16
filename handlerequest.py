@@ -20,7 +20,7 @@ mysql = MySQL(app)
 # Home Page
 @app.route("/")
 def front_page():
-    return render_template("frontpage.html")
+    return render_template("index.html")
 
 # Login/Register Account: ============================
 @app.route("/create_account")
