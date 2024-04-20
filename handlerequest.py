@@ -12,13 +12,13 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # SameSite policy for cookies
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Terabyter47m!'
+app.config['MYSQL_PASSWORD'] = 'TN9VVQ%YPHu45YLftak$'
 app.config['MYSQL_DB'] = 'larryboxd'
 
 mysql = MySQL(app)
 
 # Home Page
-@app.route("/")
+@app.route("/", methods = ["POST", "GET"])
 def front_page():
     return render_template("index.html")
 
@@ -91,25 +91,40 @@ def logout():
 # Login/Register Account End: ============================
 
 # Create Account:
-@app.route("/review")
+@app.route("/review", methods = ["POST"])
 def review():
+    title = request.form.get("title")
+    year = request.form.get("year_released")
+    director = request.form.get("director")
+
+    session["title"] = title
+    session["year"] = year
+    session["director"] = director
+
     return render_template("create_review.html")
 
-@app.route("/create_review")
+@app.route("/create_review", methods = ["POST"])
 def create_review():
     username = session["username"]
-    title = request.form.get("title")
-    director = request.form.get("director")
-    year = request.form.get("year_released")
+    title = session["title"]
+    director = session["director"]
+    year = session["year"]
+
     score = request.form.get("score")
     notes = request.form.get("notes")
     cursor = mysql.connection.cursor()
 
-    query= "INSERT INTO reviews (username, title, director, year, score, notes) VALUES (%s, %s, %s, %s, %s, %s)"
-    cursor.execute(query,(username,title,director,year,score,notes,))
+    query= "INSERT INTO reviews (username, title, year_released, director, rating, comments) VALUES (%s, %s, %s, %s, %s, %s)"
+    cursor.execute(query,(username,title,year,director,score,notes,))
     mysql.connection.commit()
     
     cursor.close()
+
+    session.pop("title", None)
+    session.pop("director", None)
+    session.pop("year", None)
+
+    return render_template("review_created.html")
 
 # Display movie search reults
 @app.route("/movie_title_search", methods = ["POST"])
