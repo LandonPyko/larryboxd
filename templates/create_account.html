@@ -2,18 +2,25 @@
 <html>
 <head>
 <Title>Movie Review Website</Title>
-<link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="/Database-Project/static/style.css">
+
+
 </head>
 <body>
+
+<div class="top">
 <h1><a href="index.html">Larryboxd</a></h1>
  <!-- Login Button -->
- <button>
- <a href="{{ url_for('login') }}">
-  <span>
-    Login
-  </span>
-</a> </button>
-<div class="detail-box">
+ <div class = "login">
+  <button>
+   <a href="{{ url_for('login') }}">
+    <span>
+      Login
+    </span>
+  </a> </button>
+</div>
+</div>
+<div class="main">
     <div class="heading_container">
       <h2>
         Create Account

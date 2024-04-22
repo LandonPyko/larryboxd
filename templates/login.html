@@ -3,22 +3,28 @@
 <head>
 <Title>Movie Review Website</Title>
 <link rel="stylesheet" href="static/style.css">
+
+
 </head>
 <body>
+
+<div class="top">
 <h1><a href="index.html">Larryboxd</a></h1>
  <!-- Login Button -->
- <button>
- <a href="{{ url_for('login') }}">
-  <span>
-    Login
-  </span>
-</a> </button>
-<div class="detail-box">
-    <div class="heading_container">
+ <div class = "login">
+  <button>
+   <a href="{{ url_for('login') }}">
+    <span>
+      Login
+    </span>
+  </a> </button>
+</div>
+</div>
+<div class="main">
+
       <h2>
         Login
       </h2>
-    </div>
         <form action="/login_info" method = "post">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username"><br>
