@@ -1,7 +1,62 @@
 <!DOCTYPE html>
 <html>
+<head>
 <Title>Movie Review Website</Title>
-<h1><a href="index.html">Larryboxd</a></h1>
-<h2>User Page</h2>
+<link rel="stylesheet" href="../static/style.css">
 
+</head>
+
+<body>
+    <div class="top">
+        <h1><a href="index.html">Larryboxd</a></h1>
+        
+        
+        <div class = "login">
+            <button>
+             <a href="{{ url_for('login') }}">
+              <span>
+                Login
+              </span>
+            </a> </button>
+            <span><p></p></span>
+            <button>
+             <a href="{{ url_for('create_account') }}">
+              <span>
+                Sign Up
+              </span>
+            </a> </button>
+        </div>
+    </div>
+
+
+    <div class= "main">
+
+        <form action="/movie_title_search" method="post">
+        <div class="search-bar">
+          <input type="text" class="search-field" name="title" placeholder="Movie Title">
+          <input type="text" class="search-field" name="director" placeholder="Director">
+          <input type="text" class="search-field" name="year_released" placeholder="Year Released">
+          <button type="submit" value="Submit">Search</button>
+        </div>
+        </form>
+
+        <h2>User Details</h2>
+        <ul>
+        <li><form action="/review" method = "post">
+            <p id="text">{{ user }}</p></li>
+
+            <!-- Hidden info to pass to backend-->
+            
+            <input type="hidden" name="username" value="{{ user[0] }}">
+            <input type="hidden" name="age" value="{{ user[1] }}">
+            <input type="hidden" name="favorite_movie" value="{{ user[2] }}">
+            <input type="hidden" name="email" value="{{ user[3] }}">
+
+    {% endfor %}
+    </ul>
+    </div>
+
+
+    
+</body>
 </html>

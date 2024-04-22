@@ -2,7 +2,7 @@
 <html>
 <head>
 <Title>Movie Review Website</Title>
-<link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="../static/style.css">
 
 </head>
 
@@ -32,7 +32,7 @@
 
 
 <div class= "main">
-<span><p></p></span>
+
 <form action="/movie_title_search" method="post">
 <div class="search-bar">
   <input type="text" class="search-field" name="title" placeholder="Movie Title">
@@ -41,10 +41,10 @@
   <button type="submit" value="Submit">Search</button>
 </div>
 </form>
+<!-- <span><p></p></span>
+<div class='today'> <form action="/process_form" method="post"><button type="submit" name="date" value="${fullDate}">${i}</button></form></div> -->
 <span><p></p></span>
-<div class='today'> <form action="/process_form" method="post"><button type="submit" name="date" value="${fullDate}">${i}</button></form></div>
-<span><p></p></span>
-<img src = "static/images/images.jpg" >
+<img src = "../static/images/images.jpg" >
 </div>
 </body>
 </html>
