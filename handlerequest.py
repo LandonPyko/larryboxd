@@ -29,7 +29,7 @@ def index():
 # Login/Register Account: ============================
 @app.route("/create_account")
 def create_account():
-    return render_template("createaccount.html")
+    return render_template("create_account.html")
 
 @app.route("/account_success", methods = ["POST"])
 def account_success():
@@ -51,7 +51,7 @@ def account_success():
     
     cursor.close()
 
-    return redirect(url_for(""))
+    return redirect(url_for("front_page"))
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
@@ -59,7 +59,7 @@ def login():
         return render_template("login.html")
         
     else:
-        return redirect(url_for(""))
+        return redirect(url_for("front_page"))
 
 @app.route("/login_info", methods = ["GET","POST"])
 def login_info():
@@ -77,7 +77,7 @@ def login_info():
         if result is not None:
             session["username"] = username
             session["password"] = password
-            return redirect(url_for("index.html"))
+            return redirect(url_for("front_page"))
         
         else:    
             return render_template("create_account.html")
@@ -86,22 +86,25 @@ def login_info():
 def logout():
     session.pop("username", None)
     session.pop("password", None)
-    return render_template("index.html")
+    return redirect(url_for("front_page"))
 
 # Login/Register Account End: ============================
 
 # Create Account:
 @app.route("/review", methods = ["POST"])
 def review():
-    title = request.form.get("title")
-    year = request.form.get("year_released")
-    director = request.form.get("director")
+    if session.get("username") is None:
+        return redirect(url_for("login"))
+    else:
+        title = request.form.get("title")
+        year = request.form.get("year_released")
+        director = request.form.get("director")
 
-    session["title"] = title
-    session["year"] = year
-    session["director"] = director
+        session["title"] = title
+        session["year"] = year
+        session["director"] = director
 
-    return render_template("create_review.html")
+        return render_template("create_review.html")
 
 @app.route("/create_review", methods = ["POST"])
 def create_review():

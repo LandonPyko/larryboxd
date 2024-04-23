@@ -43,7 +43,7 @@
     <p>Title | Director | Year Released | Box Office Earnings | Budget</p>
     <ul>
     {% for movie in results %}
-        <li><form action="/reviews" method = "post">
+        <li><form action="/review" method = "post">
             <p id="text">{{ movie }}</p></li>
 
             <!-- Hidden info to pass to backend-->
