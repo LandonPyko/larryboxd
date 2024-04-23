@@ -129,7 +129,7 @@ def create_review():
 
     return render_template("review_created.html")
 
-# Display movie search reults
+# Display movie search results
 @app.route("/movie_title_search", methods = ["POST"])
 def movie_title_search():
     if request.method == "POST":
@@ -145,6 +145,22 @@ def movie_title_search():
         cursor.execute(query, (title,director,year,))
         results = cursor.fetchall()
         return render_template("search_results.html", results=results)
+
+# Display Movies Reviewed by User
+#@app.route("/movies_by_user", methods=["POST"])
+#def movies_by_user():
+
+#Find all movies made by a given director
+
+
+#Find average rating of a movie
+
+
+#Find director of a user's favorite movie (JOIN)
+
+
+#Find all reviews of movies that turned a profit (box office earnings - budget) (JOIN)
+
 
 if __name__ == "__main__":
     app.run()
