@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, url_for
+from flask import Flask, render_template, request, session, url_for, redirect
 from flask_mysqldb import MySQL
 
 
@@ -12,7 +12,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # SameSite policy for cookies
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Terabyter47m!'
+app.config['MYSQL_PASSWORD'] = 'TN9VVQ%YPHu45YLftak$'
 app.config['MYSQL_DB'] = 'larryboxd'
 
 mysql = MySQL(app)
@@ -130,7 +130,7 @@ def create_review():
 @app.route("/movie_title_search", methods = ["POST"])
 def movie_title_search():
     if request.method == "POST":
-        username = session["username"]
+        
         title = request.form["title"]
         title = "%" + title + "%"
         director = request.form["director"]
