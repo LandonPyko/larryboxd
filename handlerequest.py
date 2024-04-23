@@ -51,7 +51,7 @@ def account_success():
     
     cursor.close()
 
-    return render_template("index.html")
+    return redirect(url_for(""))
 
 @app.route("/login", methods = ["GET","POST"])
 def login():
@@ -59,7 +59,7 @@ def login():
         return render_template("login.html")
         
     else:
-        return render_template("index.html")
+        return redirect(url_for(""))
 
 @app.route("/login_info", methods = ["GET","POST"])
 def login_info():
@@ -77,7 +77,7 @@ def login_info():
         if result is not None:
             session["username"] = username
             session["password"] = password
-            return render_template("index.html")
+            return redirect(url_for("index.html"))
         
         else:    
             return render_template("create_account.html")
