@@ -9,9 +9,10 @@ Andrew McFerrin, Landon Pyko, Kai Achen
 
 ## Requirements analysis: 
 ### Data:
-- Entities: Movies, theaters, users, and reviews. 
+- Entities: Movies, theaters, plays, users, and reviews. 
 - Attributes of movies: title, release year, director, box office earnings, and budget. 
-- Attributes of theaters: address, name, and date opened. 
+- Attributes of theaters: address, name, and date opened.
+- Attributes of plays: address, title, release year, director, and tickets sold.
 - Attributes of users: username, age, and favorite movie. 
 - Attributes of reviews: username, title, release year, director, rating and comments.
 ### Constraints:
