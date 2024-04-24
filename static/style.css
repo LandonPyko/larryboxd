@@ -114,3 +114,9 @@ button{
   color:white;
   background-color:gray;
 }
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

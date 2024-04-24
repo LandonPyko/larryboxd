@@ -106,6 +106,7 @@ def review():
 
         return render_template("create_review.html")
 
+# Create review of a movie
 @app.route("/create_review", methods = ["POST"])
 def create_review():
     username = session["username"]
@@ -157,21 +158,46 @@ def profit():
         results = cursor.fetchall()
         return render_template("profit_results.html", results=results)
 
-# Display Movies Reviewed by User
-#@app.route("/movies_by_user", methods=["POST"])
-#def movies_by_user():
-
-#Find all movies made by a given director
-
+# Find director of a user's favorite movie
+@app.route("/favorite_director", methods = ["POST"])
+def favorite_director():
+    if session.get("username") is None:
+        return render_template("login.html")
+        
+    else:
+        if request.method == "POST":
+            username = session["username"]
+            cursor = mysql.connection.cursor()
+            query = "SELECT * FROM movies, users WHERE movies.title = users.favorite_movie AND users.username = %s"
+            cursor.execute(query, (username,))
+            results = cursor.fetchall()
+            return render_template("director_results.html", results=results)
+        
+# Find movies by a given director
+@app.route("/movies_by_director", methods = ["POST"])
+def movies_by_director():
+    if request.method == "POST":
+            # username = session["username"]
+            cursor = mysql.connection.cursor()
+            director = request.form["director"]
+            query = "SELECT * FROM movies, users WHERE movies.director = %s"
+            cursor.execute(query, (director,))
+            results = cursor.fetchall()
+            return render_template("movies_by_director.html", results=results)
 
 #Find average rating of a movie
+@app.route("/average_rating", methods = ["POST"])
+def average_rating():
+    if request.method == "POST":
+            # username = session["username"]
+            cursor = mysql.connection.cursor()
+            movie = request.form["title"]
+            query = "SELECT title, year_released, director, AVG(rating) FROM reviews WHERE title = %s GROUP BY title, year_released, director"
+            cursor.execute(query, (movie,))
+            results = cursor.fetchall()
+            return render_template("average_results.html", results=results)
 
-
-#Find director of a user's favorite movie (JOIN)
-
-
-#Find all reviews of movies that turned a profit (box office earnings - budget) (JOIN)
-
+# Find all movies that played in a theater - TODO use theater.html
 
 if __name__ == "__main__":
     app.run()

@@ -28,12 +28,11 @@
 </div>
 <body>
 <div class = "main">
-<h2>Reviews of Protitable Movies</h2>
+<h2>Your Favorite Movie's Director</h2>
     <ul>
     {% for movie in results %}
-        <li><form action="/review" method = "post">
-            <p id="text">Reviewer: {{ movie[0] }} | {{ movie[1] }} ({{ movie[2] }}): Directed by {{ movie[3] }} <br>
-                Rating: {{ movie[4] }} | Comments: {{ movie[5] }}</p>
+        <li><form action="/movies_by_director" method = "post">
+            <p id="text">User: {{ movie[5] }} | Favorite Movie: {{ movie[0] }} ({{ movie[1] }}) - Directed by {{ movie[2] }}</p>
 
             <!-- Hidden info to pass to backend-->
             
@@ -43,7 +42,7 @@
             <input type="hidden" name="box_office_earnings" value="{{ movie[3] }}">
             <input type="hidden" name="budget" value="{{ movie[4] }}">
 
-            <input type="submit" value="Create Review"></form></li>
+            <input type="submit" value="See Movies Directed by {{ movie[2] }}"></form></li>
     {% endfor %}
     </ul>
 </div>
