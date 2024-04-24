@@ -180,7 +180,7 @@ def movies_by_director():
             # username = session["username"]
             cursor = mysql.connection.cursor()
             director = request.form["director"]
-            query = "SELECT * FROM movies, users WHERE movies.director = %s"
+            query = "SELECT * FROM movies WHERE movies.director = %s"
             cursor.execute(query, (director,))
             movies = cursor.fetchall()
             return render_template("movies_by_director.html", movies=movies)
