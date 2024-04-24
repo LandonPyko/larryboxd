@@ -182,7 +182,7 @@ def movies_by_director():
             query = "SELECT * FROM movies, users WHERE movies.director = %s"
             cursor.execute(query, (director,))
             results = cursor.fetchall()
-            return render_template("search_results.html", results=results)
+            return render_template("movies_by_director.html", results=results)
 
 #Find average rating of a movie
 @app.route("/average_rating", methods = ["POST"])

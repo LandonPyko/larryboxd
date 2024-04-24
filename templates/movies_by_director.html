@@ -54,7 +54,7 @@
             <input type="hidden" name="box_office_earnings" value="{{ movie[3] }}">
             <input type="hidden" name="budget" value="{{ movie[4] }}">
 
-            <input type="submit" value="Create Review"></form>
+            <input type="submit" value="Create Review"></form><br>
             <form action="/average_rating" method = "post">
                 <input type="hidden" name="title" value="{{ movie[0] }}">
                 <input type="hidden" name="year_released" value="{{ movie[1] }}">
