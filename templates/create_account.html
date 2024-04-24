@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<Title>Movie Review Website</Title>
-<link rel="stylesheet" href="/Database-Project/static/style.css">
-
-
-</head>
-<body>
+  <Title>Movie Review Website</Title>
+  <link rel="stylesheet" href="../static/style.css">
+    
+      </head>
+      <div class="top">
+    <h1><a href="index.html">Larryboxd</a></h1>
+    
+    
+    <div class = "login">
+        <button>
+         <a href="{{ url_for('login') }}">
+          <span>
+            Login
+          </span>
+        </a> </button>
+        <span><p></p></span>
+        <button>
+         <a href="{{ url_for('create_account') }}">
+          <span>
+            Sign Up
+          </span>
+        </a> </button>
+    </div>
+</div>
 
 <div class="top">
 <h1><a href="index.html">Larryboxd</a></h1>
@@ -21,11 +39,12 @@
 </div>
 </div>
 <div class="main">
-    <div class="heading_container">
+  <span><p></p></span>
+    <div class="grayBox">
       <h2>
         Create Account
       </h2>
-    </div>
+
         <form action="/account_success" method = "post">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username"><br>
@@ -40,6 +59,7 @@
             <input type="text" id="age" name="age"><br> <br>
             
             <input type="submit" value="Create Account">
+            <span><p></p></span>
           </form>
     </div>
   </div>

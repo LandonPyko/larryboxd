@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<Title>Movie Review Website</Title>
-</head>
+  <Title>Movie Review Website</Title>
+  <link rel="stylesheet" href="../static/style.css">
+    
+      </head>
 <body>
-<h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
+      <div class="top">
+    <h1><a href="index.html">Larryboxd</a></h1>
+    
+    
+    <div class = "login">
+        <button>
+         <a href="{{ url_for('login') }}">
+          <span>
+            Login
+          </span>
+        </a> </button>
+        <span><p></p></span>
+        <button>
+         <a href="{{ url_for('create_account') }}">
+          <span>
+            Sign Up
+          </span>
+        </a> </button>
+    </div>
+</div>
+
+<form action="/movie_title_search" method="post">
+    <div class="search-bar">
+      <input type="text" class="search-field" name="title" placeholder="Movie Title">
+      <input type="text" class="search-field" name="director" placeholder="Director">
+      <input type="text" class="search-field" name="year_released" placeholder="Year Released">
+      <button type="submit" value="Submit">Search</button>
+    </div>
+    </form>
+
+    <span><p></p></span>
+
+<div class = "main">
 <h2>Search Results Page</h2>
     <p>Title | Director | Year Released | Box Office Earnings | Budget</p>
     <ul>
@@ -23,5 +57,6 @@
             <input type="submit" value="Create Review"></form></li>
     {% endfor %}
     </ul>
+</div>
 </body>
 </html>
