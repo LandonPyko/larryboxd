@@ -85,3 +85,32 @@ table, th, td {
   border: 3px solid #000000;
   background: rgb(85, 83, 83);
 }
+
+body{
+  color:white;
+}
+
+a{
+  color:white;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+button{
+  color:white;
+  background-color:gray;
+}

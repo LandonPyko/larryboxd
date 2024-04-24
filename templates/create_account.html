@@ -2,11 +2,11 @@
 <html>
 <head>
   <Title>Movie Review Website</Title>
-  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="static/style.css">
     
       </head>
       <div class="top">
-    <h1><a href="index.html">Larryboxd</a></h1>
+    <h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
     
     
     <div class = "login">
@@ -25,17 +25,6 @@
         </a> </button>
     </div>
 </div>
-
-<div class="top">
-<h1><a href="index.html">Larryboxd</a></h1>
- <!-- Login Button -->
- <div class = "login">
-  <button>
-   <a href="{{ url_for('login') }}">
-    <span>
-      Login
-    </span>
-  </a> </button>
 </div>
 </div>
 <div class="main">
