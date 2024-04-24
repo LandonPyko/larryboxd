@@ -142,6 +142,17 @@ def movie_title_search():
         cursor.execute(query, (title,director,year,))
         results = cursor.fetchall()
         return render_template("search_results.html", results=results)
+    
+# Display reviews of profit making movies
+@app.route("/profit", methods = ["POST"])
+def profit():
+    if request.method == "POST":
+        # username = session["username"]
+        cursor = mysql.connection.cursor()
+        query = "SELECT * FROM reviews, movies WHERE (movies.box_office_earnings - movies.budget) > 0 AND movies.title = reviews.title AND movies.director = reviews.director AND movies.year_released = reviews.year_released"
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return render_template("profit_results.html", results=results)
 
 if __name__ == "__main__":
     app.run()
