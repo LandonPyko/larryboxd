@@ -172,7 +172,7 @@ def favorite_director():
             results = cursor.fetchall()
             return render_template("director_results.html", results=results)
         
-# Find director of a user's favorite movie
+# Find movies by a given director
 @app.route("/movies_by_director", methods = ["POST"])
 def movies_by_director():
     if request.method == "POST":
@@ -184,14 +184,17 @@ def movies_by_director():
             results = cursor.fetchall()
             return render_template("search_results.html", results=results)
 
-# Display Movies Reviewed by User
-#@app.route("/movies_by_user", methods=["POST"])
-#def movies_by_user():
-
-#Find all movies made by a given director
-
-
 #Find average rating of a movie
+@app.route("/average_rating", methods = ["POST"])
+def average_rating():
+    if request.method == "POST":
+            # username = session["username"]
+            cursor = mysql.connection.cursor()
+            movie = request.form["title"]
+            query = "SELECT title, year_released, director, AVG(rating) FROM reviews WHERE title = %s GROUP BY title, year_released, director"
+            cursor.execute(query, (movie,))
+            results = cursor.fetchall()
+            return render_template("average_results.html", results=results)
 
 
 
