@@ -157,6 +157,33 @@ def profit():
         results = cursor.fetchall()
         return render_template("profit_results.html", results=results)
 
+# Find director of a user's favorite movie
+@app.route("/favorite_director", methods = ["POST"])
+def favorite_director():
+    if session.get("username") is None:
+        return render_template("login.html")
+        
+    else:
+        if request.method == "POST":
+            username = session["username"]
+            cursor = mysql.connection.cursor()
+            query = "SELECT * FROM movies, users WHERE movies.title = users.favorite_movie AND users.username = %s"
+            cursor.execute(query, (username,))
+            results = cursor.fetchall()
+            return render_template("director_results.html", results=results)
+        
+# Find director of a user's favorite movie
+@app.route("/movies_by_director", methods = ["POST"])
+def movies_by_director():
+    if request.method == "POST":
+            # username = session["username"]
+            cursor = mysql.connection.cursor()
+            director = request.form["director"]
+            query = "SELECT * FROM movies, users WHERE movies.director = %s"
+            cursor.execute(query, (director,))
+            results = cursor.fetchall()
+            return render_template("search_results.html", results=results)
+
 # Display Movies Reviewed by User
 #@app.route("/movies_by_user", methods=["POST"])
 #def movies_by_user():
@@ -166,11 +193,6 @@ def profit():
 
 #Find average rating of a movie
 
-
-#Find director of a user's favorite movie (JOIN)
-
-
-#Find all reviews of movies that turned a profit (box office earnings - budget) (JOIN)
 
 
 if __name__ == "__main__":
