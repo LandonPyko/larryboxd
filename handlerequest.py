@@ -12,7 +12,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # SameSite policy for cookies
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Terabyter47m!'
+app.config['MYSQL_PASSWORD'] = 'TN9VVQ%YPHu45YLftak$'
 app.config['MYSQL_DB'] = 'larryboxd'
 
 mysql = MySQL(app)
@@ -147,6 +147,16 @@ def movie_title_search():
         results = cursor.fetchall()
         return render_template("search_results.html", results=results)
     
+@app.route("/see_reviews",methods = ["POST"])
+def see_reviews():
+    title = request.form["title"]
+    title = "%" + title + "%"
+    cursor = mysql.connection.cursor()
+    query = "SELECT * FROM reviews WHERE title LIKE %s"
+    cursor.execute(query,(title,))
+    results = cursor.fetchall()
+    return render_template("all_reviews.html", results=results)
+
 # Display reviews of profit making movies
 @app.route("/profit", methods = ["POST"])
 def profit():
@@ -180,7 +190,7 @@ def movies_by_director():
             # username = session["username"]
             cursor = mysql.connection.cursor()
             director = request.form["director"]
-            query = "SELECT * FROM movies, users WHERE movies.director = %s"
+            query = "SELECT * FROM movies WHERE movies.director = %s"
             cursor.execute(query, (director,))
             results = cursor.fetchall()
             return render_template("movies_by_director.html", results=results)
