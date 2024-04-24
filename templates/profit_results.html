@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<Title>Movie Review Website</Title>
-<link rel="stylesheet" href="static/style.css">
-</head>
+  <Title>Movie Review Website</Title>
+  <link rel="stylesheet" href="static/style.css">
+    
+      </head>
 <body>
-<h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
-<h2>Search Results Page</h2>
-    <p>Profitable Movies</p>
+      <div class="top">
+    <h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
+    
+    
+    <div class = "login">
+        <button>
+         <a href="{{ url_for('login') }}">
+          <span>
+            Login
+          </span>
+        </a> </button>
+        <span><p></p></span>
+        <button>
+         <a href="{{ url_for('create_account') }}">
+          <span>
+            Sign Up
+          </span>
+        </a> </button>
+    </div>
+</div>
+<body>
+<div class = "main">
+<h2>Reviews of Protitable Movies</h2>
     <ul>
     {% for movie in results %}
         <li><form action="/review" method = "post">
-            <p id="text">{{ movie }}</p></li>
+            <p id="text">Reviewer: {{ movie[0] }} | {{ movie[1] }} ({{ movie[2] }}): Directed by {{ movie[3] }} <br>
+                Rating: {{ movie[4] }} | Comments: {{ movie[5] }}</p>
 
             <!-- Hidden info to pass to backend-->
             
@@ -24,5 +46,6 @@
             <input type="submit" value="Create Review"></form></li>
     {% endfor %}
     </ul>
+</div>
 </body>
 </html>
