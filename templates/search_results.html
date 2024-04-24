@@ -73,6 +73,15 @@
               <input type="submit" value="See all Reviews For This Movie">
           </form>
 
+          <form action="/theaters_by_movie" method = "post">
+            <input type="hidden" name="title" value="{{ movie[0] }}">
+            <input type="hidden" name="year_released" value="{{ movie[1] }}">
+            <input type="hidden" name="director" value="{{ movie[2] }}">
+            <input type="hidden" name="box_office_earnings" value="{{ movie[3] }}">
+            <input type="hidden" name="budget" value="{{ movie[4] }}">
+            <input type="submit" value="See all Theaters Playing This Movie">
+        </form>
+
         </li><br><br>
 
         

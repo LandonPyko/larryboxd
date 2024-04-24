@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <Title>Movie Review Website</Title>
+  <link rel="stylesheet" href="static/style.css">
+    
+      </head>
+<body>
+      <div class="top">
+    <h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
+    
+    
+    <div class = "login">
+        <button>
+         <a href="{{ url_for('login') }}">
+          <span>
+            Login
+          </span>
+        </a> </button>
+        <span><p></p></span>
+        <button>
+         <a href="{{ url_for('create_account') }}">
+          <span>
+            Sign Up
+          </span>
+        </a> </button>
+    </div>
+</div>
+<body>
+<div class = "main">
+<h2>Results</h2>
+    <ul>
+    {% for movie in movies %}
+        <li><form action="/movies_by_theater" method = "post">
+            <p id="text">Theater Address: {{ movie[0] }} | Tickets Sold: {{ movie[4] }}</p>
+
+            <!-- Hidden info to pass to backend-->
+            
+            <input type="hidden" name="adddress" value="{{ movie[0] }}">
+            <input type="hidden" name="year_released" value="{{ movie[1] }}">
+            <input type="hidden" name="director" value="{{ movie[2] }}">
+            <input type="hidden" name="box_office_earnings" value="{{ movie[3] }}">
+            <input type="hidden" name="budget" value="{{ movie[4] }}">
+
+            <input type="submit" value="See Movies Playing at {{ movie[0] }}"></form></li>
+    {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
