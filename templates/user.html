@@ -7,28 +7,32 @@
 </head>
 
 <body>
-    <div class="top">
-        <h1><a href="index.html">Larryboxd</a></h1>
-        
-        
-        <div class = "login">
-            <button>
-             <a href="{{ url_for('login') }}">
-              <span>
-                Login
-              </span>
-            </a> </button>
-            <span><p></p></span>
-            <button>
-             <a href="{{ url_for('create_account') }}">
-              <span>
-                Sign Up
-              </span>
-            </a> </button>
-        </div>
-    </div>
-
-
+  <div class="top">
+    <h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
+    
+    
+    <div class = "login">
+        <button>
+         <a href="{{ url_for('login') }}">
+          <span>
+            Login
+          </span>
+        </a> </button></div>
+        <div class = "register">
+        <button>
+         <a href="{{ url_for('create_account') }}">
+          <span>
+            Sign Up
+          </span>
+        </a> </button></div>
+        <div class = "logout">
+        <button>
+          <a href="{{ url_for('logout') }}">
+           <span>
+             Logout
+           </span>
+         </a> </button></div>
+</div>
     <div class= "main">
 
         <form action="/movie_title_search" method="post">

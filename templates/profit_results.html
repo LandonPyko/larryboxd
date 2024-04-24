@@ -6,7 +6,7 @@
     
       </head>
 <body>
-      <div class="top">
+  <div class="top">
     <h1><a href="{{ url_for('index') }}">Larryboxd</a></h1>
     
     
@@ -16,15 +16,21 @@
           <span>
             Login
           </span>
-        </a> </button>
-        <span><p></p></span>
+        </a> </button></div>
+        <div class = "register">
         <button>
          <a href="{{ url_for('create_account') }}">
           <span>
             Sign Up
           </span>
-        </a> </button>
-    </div>
+        </a> </button></div>
+        <div class = "logout">
+        <button>
+          <a href="{{ url_for('logout') }}">
+           <span>
+             Logout
+           </span>
+         </a> </button></div>
 </div>
 <body>
 <div class = "main">
