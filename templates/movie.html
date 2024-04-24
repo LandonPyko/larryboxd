@@ -4,7 +4,8 @@
   <Title>Movie Review Website</Title>
   <link rel="stylesheet" href="../static/style.css">
     
-      </head>
+</head>
+<body>
       <div class="top">
     <h1><a href="index.html">Larryboxd</a></h1>
     
@@ -41,40 +42,60 @@
 
   <span><p></p></span>
   <div class="name">
-      <h1>{Movie Title}</h1>
+<!-- ---------------------------------------------query stuff---------------------------------------------- -->
+      <h1>{Movie Title}</h1> 
+<!-- ---------------------------------------------end query stuff---------------------------------------------- -->
   </div>
 
   <span><p></p></span>
-  <div class="details">
-    <h2> Reviews: {score}</h2>
-  </div>
-  <span><p></p></span>
-  <div class = "tables">
-    <table>
-        <tr>
-        <th>Playing at:</th>
-        </tr>
-        <tr>
-        <td>location 1</td>
-        </tr>
-        <tr>
-        <td>...</td>
-
-        </tr>
-    </table>
-  </div>
-
-
-  <span><p></p></span>
-  <div class="details">
-    <h1>Movie Details</h1> 
-    <p>Director:</p>
-    <p>Release Year:</p>
-    <p>Box Office Earnings:</p>
-    <p>Budget:</p>
-
+    <div id="tables">
+        <table>
+            <thead>
+                <tr>
+                    <th>Movie Locations</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
     
-</div>
-</div>
+    <script>
+//---------------------------------------------query stuff--------------------------------------------------
+        const movieLocations = [1,2,3];
+// ---------------------------------------------end query stuff----------------------------------------------
+      
 
+        // Function to dynamically create table rows
+        function createTableRows(locations) {
+            const tableBody = document.getElementById("table-body");
+            tableBody.innerHTML = ""; 
+
+            locations.forEach(location => {
+                const row = document.createElement("tr");
+                const cell = document.createElement("td");
+                cell.textContent = location;
+                row.appendChild(cell);
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call the function with the sample data
+        createTableRows(movieLocations);
+    </script>
+
+    <span><p></p></span>
+    <div class="details">
+<!-- ---------------------------------------------query stuff---------------------------------------------- -->
+      <h1>Movie Details</h1> 
+      <p>Director: {director}</p>
+      <p>Release Year: {year}</p>
+      <p>Box Office Earnings: {earnings}</p>
+      <p>Budget: {budget}</p>
+<!-- ---------------------------------------------end query stuff---------------------------------------------- -->
+    </div>
+
+  </div>
+</body>
 </html>
