@@ -37,8 +37,7 @@
     <ul>
     {% for movie in movies %}
         <li><form action="/review" method = "post">
-            <p id="text">{{ movie[0] }} ({{ movie[1] }}): Directed by {{ movie[2] }} <br>
-                Budget: {{ movie[4] }} | Box Office Earnings: {{ movie[3] }}</p>
+            <p id="text">{{ movie[1] }} ({{ movie[2] }}): Directed by {{ movie[3] }}<br><br>
 
             <!-- Hidden info to pass to backend-->
             
