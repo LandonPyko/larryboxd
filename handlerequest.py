@@ -219,7 +219,7 @@ def movies_by_theater():
             query = "SELECT * FROM plays WHERE plays.address = %s"
             cursor.execute(query, (theater,))
             movies = cursor.fetchall()
-            return render_template("movies_by_theater_results.html", movies=movies)
+            return render_template("movies_by_theater.html", movies=movies)
 
 # See all reviews of a movie
 @app.route("/see_reviews",methods = ["POST"])
