@@ -221,5 +221,16 @@ def movies_by_theater():
             movies = cursor.fetchall()
             return render_template("movies_by_theater_results.html", movies=movies)
 
+# See all reviews of a movie
+@app.route("/see_reviews",methods = ["POST"])
+def see_reviews():
+    title = request.form["title"]
+    title = "%" + title + "%"
+    cursor = mysql.connection.cursor()
+    query = "SELECT * FROM reviews WHERE title LIKE %s"
+    cursor.execute(query,(title,))
+    results = cursor.fetchall()
+    return render_template("all_reviews.html", results=results)
+
 if __name__ == "__main__":
     app.run()
