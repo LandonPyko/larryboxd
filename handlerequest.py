@@ -106,6 +106,7 @@ def review():
 
         return render_template("create_review.html")
 
+# Create review of a movie
 @app.route("/create_review", methods = ["POST"])
 def create_review():
     username = session["username"]
@@ -196,7 +197,7 @@ def average_rating():
             results = cursor.fetchall()
             return render_template("average_results.html", results=results)
 
-
+# Find all movies that played in a theater - TODO use theater.html
 
 if __name__ == "__main__":
     app.run()
