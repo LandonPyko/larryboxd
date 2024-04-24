@@ -28,7 +28,7 @@
 </div>
 <body>
 <div class = "main">
-<h2>Results</h2>
+<h2>Theaters Playing This Movie</h2>
     <ul>
     {% for movie in movies %}
         <li><form action="/movies_by_theater" method = "post">
@@ -36,7 +36,7 @@
 
             <!-- Hidden info to pass to backend-->
             
-            <input type="hidden" name="adddress" value="{{ movie[0] }}">
+            <input type="hidden" name="address" value="{{ movie[0] }}">
             <input type="hidden" name="year_released" value="{{ movie[1] }}">
             <input type="hidden" name="director" value="{{ movie[2] }}">
             <input type="hidden" name="box_office_earnings" value="{{ movie[3] }}">
