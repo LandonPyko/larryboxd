@@ -1,8 +1,13 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 from flask_mysqldb import MySQL
+from dotenv import load_dotenv
+import os
+from flask_cors import CORS
 
+load_dotenv
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = "hello"
 
 app.config['SESSION_COOKIE_NAME'] = 'session'  # Name of the session cookie
@@ -233,4 +238,4 @@ def see_reviews():
     return render_template("all_reviews.html", results=results)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=443)
