@@ -15,10 +15,10 @@ app.config['SESSION_COOKIE_HTTPONLY'] = True  # Limit cookie access to HTTP requ
 app.config['SESSION_COOKIE_SECURE'] = True  # Only send cookie over HTTPS
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # SameSite policy for cookies
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Terabyter47m!'
-app.config['MYSQL_DB'] = 'larryboxd'
+app.config['MYSQL_HOST'] = 'mysql.eecs.ku.edu'
+app.config['MYSQL_USER'] = '447s24_k801a197'
+app.config['MYSQL_PASSWORD'] = 'aex4Voer'
+app.config['MYSQL_DB'] = '447s24_k801a197'
 
 mysql = MySQL(app)
 
