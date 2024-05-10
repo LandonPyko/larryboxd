@@ -1,0 +1,97 @@
+-- Create schema called larryboxd
+
+-- Create Tables (Use commands IN ORDER):
+CREATE TABLE larryboxd.users (
+	username VARCHAR(16) NOT NULL,
+	password VARCHAR(45) NOT NULL,
+	favorite_movie VARCHAR(45),
+	age int NOT NULL,
+	PRIMARY KEY (username)
+);
+
+CREATE TABLE larryboxd.reviews (
+	username VARCHAR(16) NOT NULL,
+	title VARCHAR(45) NOT NULL,
+	year_released YEAR(4) NOT NULL,
+	director VARCHAR(45) NOT NULL,
+	rating INT NOT NULL,
+	comments VARCHAR(255),
+	PRIMARY KEY (username, title, year_released, director)
+);
+
+CREATE TABLE larryboxd.movies (
+	title VARCHAR(45) NOT NULL,
+	year_released YEAR(4) NOT NULL,
+	director VARCHAR(45) NOT NULL,
+	box_office_earnings INT NOT NULL,
+	budget INT NOT NULL,
+	PRIMARY KEY (title, year_released, director)
+);
+
+CREATE TABLE larryboxd.theaters (
+	address VARCHAR(16) NOT NULL,
+	name VARCHAR(45) NOT NULL,
+	date_opened DATE NOT NULL,
+	PRIMARY KEY (address)
+);
+
+CREATE INDEX idx_director ON larryboxd.movies(director);
+CREATE INDEX idx_year_released ON larryboxd.movies(year_released);
+CREATE INDEX idx_title ON larryboxd.movies(title);
+
+CREATE TABLE larryboxd.plays (
+	address VARCHAR(45) NOT NULL,
+	title VARCHAR(45) NOT NULL,
+	year_released YEAR NOT NULL,
+	director VARCHAR(45) NOT NULL,
+	tickets_sold INT NOT NULL,
+	FOREIGN KEY (address) REFERENCES larryboxd.theaters(address),
+	FOREIGN KEY (title) REFERENCES larryboxd.movies(title),
+	FOREIGN KEY (year_released) REFERENCES larryboxd.movies(year_released),
+	FOREIGN KEY (director) REFERENCES larryboxd.movies(director),
+	PRIMARY KEY (address, title, year_released, director)
+);
+
+-- Insert values into tables (users and reviews can be added through site itself)
+
+INSERT INTO larryboxd.movies (title, year_released, director, box_office_earnings, budget)
+VALUES
+('Fight Club', 1999, 'David Fincher', 101200000, 63000000),
+('Forrest Gump', 1994, 'Robert Zemeckis', 678200000, 55000000),
+('Inception', 2010, 'Christopher Nolan', 829900000, 160000000),
+('Pulp Fiction', 1994, 'Quentin Tarantino', 212900000, 8500000),
+('Schindler’’s List', 1993, 'Steven Spielberg', 321200000, 22000000),
+('The Dark Knight', 2008, 'Christopher Nolan', 1005000000, 185000000),
+('The Godfather', 1972, 'Francis Ford Coppola', 246000000, 6000000),
+('The Lord of the Rings: The Return of the King', 2003, 'Peter Jackson', 1140000000, 94000000),
+('The Matrix', 1999, 'Lana Wachowski, Lilly Wachowski', 463500000, 63000000),
+('Hard Rain', 1998, 'Mikael Salomon', 19900000, 70000000),
+('The Shawshank Redemption', 1994, 'Frank Darabont', 28340000, 25000000);
+
+INSERT INTO larryboxd.theaters (address, name, date_opened)
+VALUES
+('123 Sesame St', 'Elmo''s Theater', 1995),
+('31 Spooner St', 'Peter''s Theater', 1980),
+('3400 Iowa St', 'Regal Southwind 12', 1970);
+
+INSERT INTO larryboxd.plays (address, title, year_released, director, tickets_sold)
+VALUES
+('123 Sesame St', 'Fight Club', 1999, 'David Fincher', 10000),
+('123 Sesame St', 'Pulp Fiction', 1994, 'Quentin Tarantino', 45000),
+('31 Spooner St', 'Fight Club', 1999, 'David Fincher', 30000);
+
+-- Be sure to change code in handlerequest.py to reflect using a local MySQL server by updating the following lines:
+
+18 app.config['MYSQL_HOST'] = 'mysql.eecs.ku.edu'
+19 app.config['MYSQL_USER'] = '447s24_k801a197'
+20 app.config['MYSQL_PASSWORD'] = 'aex4Voer'
+21 app.config['MYSQL_DB'] = '447s24_k801a197'
+
+-- Update these lines to be:
+
+18 app.config['MYSQL_HOST'] = 'localhost'
+19 app.config['MYSQL_USER'] = 'root'
+20 app.config['MYSQL_PASSWORD'] = '<your password>'
+21 app.config['MYSQL_DB'] = 'larryboxd'
+
+-- If you run into any issues, please contact kachen@ku.edu for assistance
