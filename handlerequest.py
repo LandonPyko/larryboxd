@@ -1,8 +1,13 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 from flask_mysqldb import MySQL
+from dotenv import load_dotenv
+import os
+from flask_cors import CORS
 
+load_dotenv
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = "hello"
 
 app.config['SESSION_COOKIE_NAME'] = 'session'  # Name of the session cookie
@@ -12,7 +17,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # SameSite policy for cookies
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'TN9VVQ%YPHu45YLftak$'
+app.config['MYSQL_PASSWORD'] = 'Terabyter47m!'
 app.config['MYSQL_DB'] = 'larryboxd'
 
 mysql = MySQL(app)
@@ -233,4 +238,4 @@ def see_reviews():
     return render_template("all_reviews.html", results=results)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=443)
