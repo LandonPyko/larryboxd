@@ -3,6 +3,9 @@
 ## Group members:
 Andrew McFerrin, Landon Pyko, Kai Achen
 
+## IMPORTANT:
+If the ku mysql server is not connecting when running this application (we had a bit of trouble), use the file MySQL_Table_Creation.txt to replicate the database on a local MySQL server.
+
 ## Introduction:
   The mini-world for our project is a Movie Review Application. Each user is uniquely identified by their username. On their account they can store their favorite movie. From their account, they can review a movie. In the review, they give the movie a rating, along with any additional comments they have about the movie. Each movie is uniquely identified by its title, release year, and director together. A movie has additional information stored, such as its budget and its box office earnings. A movie is played at multiple theaters, and a theater shows multiple movies. The theater stores the number of tickets sold for each movie that is shown. Every theater is uniquely identified by its address. Other information about the theater includes its name and date of opening.
 
